@@ -3,7 +3,6 @@
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3834845430746456"
      crossorigin="anonymous"></script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>✨ Mon Outil Pro - Version Finale ✨</title>
@@ -12,7 +11,6 @@
       --main-color: #ff6b6b;
       --bg-gradient: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     }
-
     body {
       margin: 0;
       padding: 0;
@@ -22,13 +20,11 @@
       overflow-x: hidden;
       transition: background 1s ease;
     }
-
     h1 {
       text-align: center;
       margin-top: 30px;
       font-size: 2.5em;
     }
-
     .tools-container {
       display: flex;
       flex-direction: column;
@@ -38,7 +34,6 @@
       position: relative;
       z-index: 2;
     }
-
     .tool {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 20px;
@@ -50,13 +45,11 @@
       text-align: center;
       transition: background 0.5s ease;
     }
-
     label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
-
     input, button {
       padding: 12px;
       border-radius: 10px;
@@ -66,37 +59,31 @@
       width: 80%;
       outline: none;
     }
-
     button {
       background: var(--main-color);
       color: white;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     button:hover {
       transform: scale(1.1);
       box-shadow: 0 0 20px var(--main-color);
     }
-
     #password, #qrcode canvas {
       margin-top: 20px;
       word-wrap: break-word;
       font-weight: bold;
       animation: popIn 0.5s ease;
     }
-
     @keyframes popIn {
       from { opacity: 0; transform: scale(0.8); }
       to { opacity: 1; transform: scale(1); }
     }
-
     .counter, .history {
       margin-top: 15px;
       font-size: 0.9em;
       opacity: 0.8;
     }
-
     #scrollTop {
       position: fixed;
       bottom: 20px;
@@ -112,11 +99,9 @@
       box-shadow: 0 0 15px var(--main-color);
       transition: transform 0.2s ease;
     }
-
     #scrollTop:hover {
       transform: scale(1.2);
     }
-
     canvas#particles {
       position: fixed;
       top: 0;
@@ -131,6 +116,20 @@
 <body>
   <canvas id="particles"></canvas>
   <h1>✨ Mon Outil Pro ✨</h1>
+
+  <!-- Pub sous le titre -->
+  <div style="margin: 30px 0; text-align: center;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3834845430746456"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
   <div class="tools-container">
     <div class="tool">
       <h2>🔑 Générateur de Mot de Passe</h2>
@@ -142,7 +141,6 @@
       <div class="counter" id="passwordCounter">0 génération(s)</div>
       <div class="history" id="passwordHistory"></div>
     </div>
-
     <div class="tool">
       <h2>📱 Générateur de QR Code</h2>
       <label for="qrText">Texte ou URL :</label>
@@ -163,7 +161,6 @@
     let currentQR = null;
     let passwordHistory = JSON.parse(localStorage.getItem('passwordHistory') || '[]');
     const historyElem = document.getElementById('passwordHistory');
-
     function displayHistory() {
       if (passwordHistory.length > 0) {
         historyElem.innerHTML = '<strong>Historique :</strong><br>' + passwordHistory.slice(-5).reverse().join('<br>');
@@ -171,9 +168,7 @@
         historyElem.innerHTML = '';
       }
     }
-
     displayHistory();
-
     function generatePassword() {
       const length = document.getElementById('length').value;
       if (!length || length < 4) {
@@ -194,7 +189,6 @@
       displayHistory();
       intensifyParticles();
     }
-
     function copyPassword() {
       const password = document.getElementById('password').innerText;
       if (!password) return alert('Aucun mot de passe à copier !');
@@ -202,7 +196,6 @@
         alert('Mot de passe copié !');
       });
     }
-
     function generateQRCode() {
       const text = document.getElementById('qrText').value.trim();
       if (!text) {
@@ -221,7 +214,6 @@
       document.getElementById('qrCounter').innerText = qrCount + ' génération(s)';
       intensifyParticles();
     }
-
     function downloadQRCode() {
       if (!currentQR) return alert('Aucun QR Code à télécharger !');
       const link = document.createElement('a');
@@ -229,26 +221,20 @@
       link.href = currentQR.toDataURL('image/png');
       link.click();
     }
-
     window.addEventListener('scroll', () => {
       const btn = document.getElementById('scrollTop');
       btn.style.display = window.scrollY > 300 ? 'block' : 'none';
     });
-
-    // Fond animé (particules)
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let particles = [];
     let speedMultiplier = 1;
-
     function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
-
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
-
     function createParticles() {
       for (let i = 0; i < 50; i++) {
         particles.push({
@@ -260,7 +246,6 @@
         });
       }
     }
-
     function animateParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach(p => {
@@ -275,26 +260,25 @@
       });
       requestAnimationFrame(animateParticles);
     }
-
     function intensifyParticles() {
       speedMultiplier += 0.1;
       if (speedMultiplier > 3) speedMultiplier = 1;
     }
-
     createParticles();
     animateParticles();
   </script>
-  <div style="margin-top: 50px; text-align: center;">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3834845430746456"
-       data-ad-slot="1234567890"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
 
+  <!-- Pub en bas de page -->
+  <div style="margin-top: 50px; text-align: center;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3834845430746456"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 </body>
 </html>
